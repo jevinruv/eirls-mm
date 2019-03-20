@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 
-import { httpInterceptorProviders } from './auth-interceptor';
+import { httpAuthInterceptorProvider } from './auth-interceptor';
+import { httpLoaderInterceptorProvider } from './loader-interceptor';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,7 @@ import { SupplierDetailsComponent } from './supplier-details/supplier-details.co
 import { SupplierListComponent } from './supplier-list/supplier-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
+import { LoaderComponent } from './ui/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     SupplierDetailsComponent,
     SupplierListComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpAuthInterceptorProvider, httpLoaderInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
