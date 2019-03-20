@@ -13,6 +13,8 @@ import { SupplierListComponent } from './supplier-list/supplier-list.component';
 import { LoginComponent } from './login/login.component';
 import { LoaderComponent } from './ui/loader/loader.component';
 import { NavbarComponent } from './ui/navbar/navbar.component';
+import { LoginLayoutComponent } from './ui/layouts/login-layout/login-layout.component';
+import { DefaultLayoutComponent } from './ui/layouts/default-layout/default-layout.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { NavbarComponent } from './ui/navbar/navbar.component';
     SupplierListComponent,
     NavbarComponent,
     LoginComponent,
-    LoaderComponent
+    LoaderComponent,
+    LoginLayoutComponent,
+    DefaultLayoutComponent
   ],
   imports: [
     BrowserModule,
