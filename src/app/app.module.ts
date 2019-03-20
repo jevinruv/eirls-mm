@@ -10,9 +10,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SupplierDetailsComponent } from './supplier-details/supplier-details.component';
 import { SupplierListComponent } from './supplier-list/supplier-list.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { LoaderComponent } from './ui/loader/loader.component';
+import { NavbarComponent } from './ui/navbar/navbar.component';
 
 @NgModule({
   declarations: [
