@@ -1,0 +1,9 @@
+{
+    "/api": {
+        "target": "https://eirls-mm.azurewebsites.net/api",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}
