@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ItemService {
 
-  API_URL = "/items";
+  API_URL = "/api/items";
 
   constructor(private http: HttpClient) { }
 
