@@ -1,12 +1,12 @@
 <h3>Supplier</h3>
 
-<form #supplierForm="ngForm" (ngSubmit)="onSubmit(supplierForm.value)" class="mt-4">
+<form #supplierForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
 
   <div class="form-row">
 
     <div class="form-group col-md-3">
       <label for="id">ID</label>
-      <input #id="ngModel" [(ngModel)]="supplier.id" name="id" id="id" type="text" class="form-control" required
+      <input #id="ngModel" [(ngModel)]="supplier.id" name="id" id="id" type="text" class="form-control"
         [readonly]="true">
     </div>
 
@@ -21,7 +21,9 @@
       <label for="status">Status</label>
       <select #status="ngModel" [(ngModel)]="supplier.status" name="status" id="status" class="form-control" id="status"
         required [disabled]="isReadOnly">
-        <option value="we">1</option>
+        <option value="CLEAR">CLEAR</option>
+        <option value="BLOCKED">BLOCKED</option>
+        <option value="PENDING">PENDING</option>
       </select>
       <div class="invalid-feedback d-block" *ngIf="status.touched && status.invalid"> Status is Required </div>
     </div>
@@ -35,31 +37,34 @@
     <div class="invalid-feedback d-block" *ngIf="name.touched && name.invalid"> Name is Required </div>
   </div>
 
-  <div class="form-row">
-    <div class="form-group col-md-3">
-      <label for="telephone">Telephone</label>
-      <input #telephone="ngModel" [(ngModel)]="supplier.telephone" name="telephone" id="telephone" type="text"
-        class="form-control" required [readonly]="isReadOnly">
-      <div class="invalid-feedback d-block" *ngIf="telephone.touched && telephone.invalid"> Telephone is Required </div>
+  <div ngModelGroup="supplierContact">
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="phone">Phone</label>
+        <input #phone="ngModel" [(ngModel)]="supplier.supplierContact.phone" name="phone" id="phone" type="text"
+          class="form-control" required [readonly]="isReadOnly">
+        <div class="invalid-feedback d-block" *ngIf="phone.touched && phone.invalid"> Phone is Required </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input #email="ngModel" [(ngModel)]="supplier.supplierContact.email" name="email" id="email" type="email"
+          class="form-control" required [readonly]="isReadOnly">
+        <div class="invalid-feedback d-block" *ngIf="email.touched && email.invalid"> Email is Required </div>
+      </div>
     </div>
 
-    <div class="form-group col-md-6">
-      <label for="email">Email</label>
-      <input #email="ngModel" [(ngModel)]="supplier.email" name="email" id="email" type="email" class="form-control"
-        required [readonly]="isReadOnly">
-      <div class="invalid-feedback d-block" *ngIf="email.touched && email.invalid"> Email is Required </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input #address="ngModel" [(ngModel)]="supplier.supplierContact.address" name="address" id="address" type="text"
+        class="form-control col-md-9" id="address" required [readonly]="isReadOnly">
+      <div class="invalid-feedback d-block" *ngIf="address.touched && address.invalid"> Address is Required </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label for="address">Address</label>
-    <input #address="ngModel" [(ngModel)]="supplier.address" name="address" id="address" type="text"
-      class="form-control col-md-9" id="address" required [readonly]="isReadOnly">
-    <div class="invalid-feedback d-block" *ngIf="address.touched && address.invalid"> Address is Required </div>
   </div>
-
 
   <button class="btn btn-success" [disabled]="!supplierForm.valid">Save</button>
-  <button *ngIf="supplier.id" type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+  <!-- <button *ngIf="supplier.id" type="button" (click)="delete()" class="btn btn-danger">Delete</button> -->
   <button *ngIf="supplier.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button>
 </form>
