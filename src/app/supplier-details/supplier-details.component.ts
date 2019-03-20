@@ -36,7 +36,7 @@ export class SupplierDetailsComponent implements OnInit {
     if (this.id) {
       this.supplierService.get(this.id).subscribe((data: Supplier) => {
         this.supplier = data;
-        console.log(data);
+        // console.log(data);
       });
     }
     else {
@@ -45,9 +45,9 @@ export class SupplierDetailsComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.supplier);
     this.supplierService.addOrUpdate(this.supplier).subscribe(data => {
-      console.log(data);
+      // console.log(data);
+      this.isReadOnly = true;
     });
   }
 
