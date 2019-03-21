@@ -15,6 +15,9 @@ import { LoaderComponent } from './ui/loader/loader.component';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { LoginLayoutComponent } from './ui/layouts/login-layout/login-layout.component';
 import { DefaultLayoutComponent } from './ui/layouts/default-layout/default-layout.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ItemDetailsComponent } from './item-details/item-details.component';
+
 
 @NgModule({
   declarations: [
@@ -25,13 +28,15 @@ import { DefaultLayoutComponent } from './ui/layouts/default-layout/default-layo
     LoginComponent,
     LoaderComponent,
     LoginLayoutComponent,
-    DefaultLayoutComponent
+    DefaultLayoutComponent,
+    ItemDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [httpAuthInterceptorProvider, httpLoaderInterceptorProvider],
   bootstrap: [AppComponent]

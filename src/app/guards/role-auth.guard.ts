@@ -16,7 +16,7 @@ export class RoleAuthGuard implements CanActivate {
 
     let authority = this.tokenStorage.getAuthority();
 
-    if (authority && authority == "ROLE_MC") {
+    if (authority && authority == "ROLE_MM") {
       return true;
     }
 
