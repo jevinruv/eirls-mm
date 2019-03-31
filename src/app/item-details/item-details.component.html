@@ -1,3 +1,64 @@
-<p>
-  item-details works!
-</p>
+<h3>Item</h3>
+
+<form #itemForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
+
+  <div class="form-row">
+
+    <div class="form-group col-md-3">
+      <label for="id">ID</label>
+      <input #id="ngModel" [(ngModel)]="item.id" name="id" id="id" type="text" class="form-control" [readonly]="true">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="supplier">Supplier</label>
+      <select #supplier="ngModel" [(ngModel)]="item.supplier" [compareWith]="compareByOptionId" name="supplier"
+        id="supplier" class="form-control" required [disabled]="isReadOnly">
+        <option *ngFor="let supplier of supplierList" [ngValue]="supplier"> {{supplier.name}} </option>
+      </select>
+      <div class="invalid-feedback d-block" *ngIf="supplier.touched && supplier.invalid"> Supplier is Required </div>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input #name="ngModel" [(ngModel)]="item.name" name="name" id="name" type="text" class="form-control col-md-9"
+      required [readonly]="isReadOnly">
+    <div class="invalid-feedback d-block" *ngIf="name.touched && name.invalid"> Name is Required </div>
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-md-5">
+      <label for="price">Price</label>
+      <input #price="ngModel" [(ngModel)]="item.price" name="price" id="price" type="number" min="1"
+        class="form-control" required [readonly]="isReadOnly">
+      <div class="invalid-feedback d-block" *ngIf="price.touched && price.invalid"> Price is Required </div>
+      <div class="invalid-feedback d-block" *ngIf="price.value < 1"> Price is Invalid </div>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="quantity">Quantity</label>
+      <input #quantity="ngModel" [(ngModel)]="item.quantity" name="quantity" id="quantity" type="number" min="1"
+        class="form-control" required [readonly]="isReadOnly">
+      <div class="invalid-feedback d-block" *ngIf="quantity.touched && quantity.invalid"> Quantity is Required </div>
+      <div class="invalid-feedback d-block" *ngIf="quantity.value < 1"> Quantity is Invalid </div>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea #description="ngModel" [(ngModel)]="item.description" name="description" id="description"
+      class="form-control col-md-9" required [readonly]="isReadOnly" rows="3"></textarea>
+    <div class="invalid-feedback d-block" *ngIf="description.touched && description.invalid"> Description is Required
+    </div>
+  </div>
+
+  <div>
+    <a routerLink="/item" class="btn btn-secondary"> <i class="fa fa-arrow-left"></i>Item List </a>
+    <button class="btn btn-success" [disabled]="!itemForm.valid || isReadOnly">Save</button>
+    <button *ngIf="item.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button>
+  </div>
+
+</form>

@@ -29,7 +29,7 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
     LoaderComponent,
     LoginLayoutComponent,
     DefaultLayoutComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
   ],
   imports: [
     BrowserModule,
