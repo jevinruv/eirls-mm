@@ -12,7 +12,7 @@ import { SupplierService } from '../services/supplier.service';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  item: Item = {};
+  item: Item = new Item();
   supplierList: Supplier[] = [];
 
   isReadOnly = true;

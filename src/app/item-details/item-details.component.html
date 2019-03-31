@@ -34,7 +34,7 @@
       <input #price="ngModel" [(ngModel)]="item.price" name="price" id="price" type="number" min="1"
         class="form-control" required [readonly]="isReadOnly">
       <div class="invalid-feedback d-block" *ngIf="price.touched && price.invalid"> Price is Required </div>
-      <div class="invalid-feedback d-block" *ngIf="price.value < 1"> Price is Invalid </div>
+      <div class="invalid-feedback d-block" *ngIf="price.value < 1 && price.touched"> Price is Invalid </div>
     </div>
 
     <div class="form-group col-md-4">
@@ -42,7 +42,7 @@
       <input #quantity="ngModel" [(ngModel)]="item.quantity" name="quantity" id="quantity" type="number" min="1"
         class="form-control" required [readonly]="isReadOnly">
       <div class="invalid-feedback d-block" *ngIf="quantity.touched && quantity.invalid"> Quantity is Required </div>
-      <div class="invalid-feedback d-block" *ngIf="quantity.value < 1"> Quantity is Invalid </div>
+      <div class="invalid-feedback d-block" *ngIf="quantity.value < 1 && quantity.touched"> Quantity is Invalid </div>
     </div>
 
   </div>
