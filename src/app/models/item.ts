@@ -1,4 +1,5 @@
 import { Supplier } from './supplier';
+import { ItemReorder } from './item-reorder';
 
 export class Item {
     id: number;
@@ -7,6 +8,7 @@ export class Item {
     price: number;
     quantity: number;
     supplier: Supplier = new Supplier();
+    itemReorder: ItemReorder = new ItemReorder();
 
     constructor() {
         this.id = null;

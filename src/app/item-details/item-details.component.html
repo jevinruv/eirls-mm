@@ -11,8 +11,8 @@
 
     <div class="form-group col-md-6">
       <label for="supplier">Supplier</label>
-      <select #supplier="ngModel" [(ngModel)]="item.supplier" [compareWith]="compareByOptionId" name="supplier"
-        id="supplier" class="form-control" required [disabled]="isReadOnly">
+      <select required #supplier="ngModel" [(ngModel)]="item.supplier" [compareWith]="compareByOptionId" name="supplier"
+        id="supplier" class="form-control" [disabled]="isReadOnly">
         <option *ngFor="let supplier of supplierList" [ngValue]="supplier"> {{supplier.name}} </option>
       </select>
       <div class="invalid-feedback d-block" *ngIf="supplier.touched && supplier.invalid"> Supplier is Required </div>
@@ -45,6 +45,32 @@
       <div class="invalid-feedback d-block" *ngIf="quantity.value < 1 && quantity.touched"> Quantity is Invalid </div>
     </div>
 
+  </div>
+
+  <div ngModelGroup="itemReorder">
+
+    <div class="form-row">
+
+      <div class="form-group col-md-5">
+        <label for="level">Reorder Level</label>
+        <input #level="ngModel" [(ngModel)]="item.itemReorder.level" name="level" id="level" type="number" min="1"
+          class="form-control" required [readonly]="isReadOnly">
+        <div class="invalid-feedback d-block" *ngIf="level.touched && level.invalid"> Reorder Level is Required </div>
+        <div class="invalid-feedback d-block" *ngIf="level.value < 1 && level.touched"> Reorder Level is Invalid </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="rquantity">Reorder Quantity</label>
+        <input #rquantity="ngModel" [(ngModel)]="item.itemReorder.quantity" name="rquantity" id="rquantity"
+          type="number" min="1" class="form-control" required [readonly]="isReadOnly">
+        <div class="invalid-feedback d-block" *ngIf="rquantity.touched && rquantity.invalid">Reorder Quantity is
+          Required
+        </div>
+        <div class="invalid-feedback d-block" *ngIf="rquantity.value < 1 && rquantity.touched">Reorder Quantity is
+          Invalid </div>
+      </div>
+
+    </div>
   </div>
 
   <div class="form-group">

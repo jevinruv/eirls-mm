@@ -1,4 +1,4 @@
-import { SupplierContact } from './supplier.contact';
+import { SupplierContact } from './supplier-contact';
 
 export class Supplier {
     id: number;
