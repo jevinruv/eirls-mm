@@ -10,22 +10,27 @@
         [readonly]="true">
     </div>
 
-    <!-- <div class="form-group col-md-6">
-      <label for="name">Name</label>
-      <input #name="ngModel" [(ngModel)]="supplier.name" name="name" id="name" type="text" class="form-control" required
-        [readonly]="isReadOnly">
-      <div class="invalid-feedback d-block" *ngIf="name.touched && name.invalid"> Name is Required </div>
-    </div> -->
-
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="status">Status</label>
-      <select #status="ngModel" [(ngModel)]="supplier.status" name="status" id="status" class="form-control" id="status"
-        required [disabled]="isReadOnly">
+      <select #status="ngModel" [(ngModel)]="supplier.status" name="status" id="status" class="form-control" required
+        [disabled]="isReadOnly">
         <option value="CLEAR">CLEAR</option>
         <option value="BLOCKED">BLOCKED</option>
         <option value="PENDING">PENDING</option>
       </select>
       <div class="invalid-feedback d-block" *ngIf="status.touched && status.invalid"> Status is Required </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="status">Performance</label>
+      <select #performance="ngModel" [(ngModel)]="supplier.performance" name="performance" id="performance"
+        class="form-control" required [disabled]="isReadOnly">
+        <option value="Good">Good</option>
+        <option value="Average">Average</option>
+        <option value="Poor">Poor</option>
+      </select>
+      <div class="invalid-feedback d-block" *ngIf="performance.touched && performance.invalid"> Performance is Required
+      </div>
     </div>
 
   </div>
@@ -35,6 +40,13 @@
     <input #name="ngModel" [(ngModel)]="supplier.name" name="name" id="name" type="text" class="form-control col-md-9"
       required [readonly]="isReadOnly">
     <div class="invalid-feedback d-block" *ngIf="name.touched && name.invalid"> Name is Required </div>
+  </div>
+
+  <div class="form-group">
+    <label for="leadTime">Lead Time</label>
+    <input #leadTime="ngModel" [(ngModel)]="supplier.leadTime" name="leadTime" id="leadTime" type="text"
+      class="form-control col-md-9" required [readonly]="isReadOnly">
+    <div class="invalid-feedback d-block" *ngIf="leadTime.touched && leadTime.invalid"> Lead Time is Required </div>
   </div>
 
   <div ngModelGroup="supplierContact">
@@ -56,17 +68,35 @@
     </div>
 
     <div class="form-group">
-      <label for="address">Address</label>
-      <input #address="ngModel" [(ngModel)]="supplier.supplierContact.address" name="address" id="address" type="text"
-        class="form-control col-md-9" id="address" required [readonly]="isReadOnly">
-      <div class="invalid-feedback d-block" *ngIf="address.touched && address.invalid"> Address is Required </div>
+      <label for="locationCollection">Location Collection</label>
+      <input #locationCollection="ngModel" [(ngModel)]="supplier.supplierContact.locationCollection"
+        name="locationCollection" id="locationCollection" type="text" class="form-control col-md-9"
+        id="locationCollection" required [readonly]="isReadOnly">
+      <div class="invalid-feedback d-block" *ngIf="locationCollection.touched && locationCollection.invalid"> Location
+        Collection is Required </div>
+    </div>
+
+    <div class="form-group">
+      <label for="locationDelivery">Location Delivery</label>
+      <input #locationDelivery="ngModel" [(ngModel)]="supplier.supplierContact.locationDelivery" name="locationDelivery"
+        id="locationDelivery" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+      <div class="invalid-feedback d-block" *ngIf="locationDelivery.touched && locationDelivery.invalid"> Location
+        Delivery is Required </div>
+    </div>
+
+    <div class="form-group">
+      <label for="locationMain">Location Main</label>
+      <input #locationMain="ngModel" [(ngModel)]="supplier.supplierContact.locationMain" name="locationMain"
+        id="locationMain" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+      <div class="invalid-feedback d-block" *ngIf="locationMain.touched && locationMain.invalid"> Location
+        Main is Required </div>
     </div>
 
   </div>
 
   <div>
     <a routerLink="/supplier" class="btn btn-secondary"> <i class="fa fa-arrow-left"></i>Supplier List </a>
-    <button class="btn btn-success" [disabled]="!supplierForm.valid">Save</button>
+    <button class="btn btn-success" [disabled]="!supplierForm.valid || isReadOnly">Save</button>
     <button *ngIf="supplier.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button>
   </div>
 

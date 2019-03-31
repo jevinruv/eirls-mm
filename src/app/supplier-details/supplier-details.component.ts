@@ -10,20 +10,9 @@ import { Supplier } from '../models/supplier';
 })
 export class SupplierDetailsComponent implements OnInit {
 
-  supplier: Supplier = {
-    id: null,
-    name: null,
-    status: null,
-    leadTime: null,
-    supplierContact: {
-      email: null,
-      phone: null,
-      address: null
-    }
-  };
-
   isReadOnly = true;
   id: string;
+  supplier: Supplier = new Supplier();
 
   constructor(
     private route: ActivatedRoute,
@@ -36,7 +25,6 @@ export class SupplierDetailsComponent implements OnInit {
     if (this.id) {
       this.supplierService.get(this.id).subscribe((data: Supplier) => {
         this.supplier = data;
-        // console.log(data);
       });
     }
     else {
@@ -45,8 +33,8 @@ export class SupplierDetailsComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.supplierService.addOrUpdate(this.supplier).subscribe(data => {
-      // console.log(data);
       this.isReadOnly = true;
     });
   }
