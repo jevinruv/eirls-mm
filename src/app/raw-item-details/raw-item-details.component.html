@@ -83,7 +83,7 @@
   </div>
 
   <div>
-    <a routerLink="/rawItem" class="btn btn-secondary"> <i class="fa fa-arrow-left"></i>Raw Item List</a>
+    <a routerLink="/raw-item" class="btn btn-secondary"> <i class="fa fa-arrow-left"></i>Raw Item List</a>
     <button class="btn btn-success" [disabled]="!rawItemForm.valid || isReadOnly">Save</button>
     <button *ngIf="rawItem.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button>
   </div>
