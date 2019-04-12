@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Supplier } from '../models/supplier';
 import { ActivatedRoute } from '@angular/router';
-import { ItemService } from '../services/item.service';
-import { Item } from '../models/item';
 import { SupplierService } from '../services/supplier.service';
+import { RawItem } from '../models/raw-item';
+import { RawItemService } from '../services/raw-item.service';
 
 @Component({
-  selector: 'app-item-details',
-  templateUrl: './item-details.component.html',
-  styleUrls: ['./item-details.component.css']
+  selector: 'app-raw-item-details',
+  templateUrl: './raw-item-details.component.html',
+  styleUrls: ['./raw-item-details.component.css']
 })
-export class ItemDetailsComponent implements OnInit {
+export class RawItemDetailsComponent implements OnInit {
 
-  item: Item = new Item();
+  rawItem: RawItem = new RawItem();
   supplierList: Supplier[] = [];
 
   isReadOnly = true;
@@ -20,7 +20,7 @@ export class ItemDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private itemService: ItemService,
+    private rawItemService: RawItemService,
     private supplierService: SupplierService
 
   ) { }
@@ -33,8 +33,8 @@ export class ItemDetailsComponent implements OnInit {
 
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
-      this.itemService.get(this.id).subscribe(data => {
-        this.item = data;
+      this.rawItemService.get(this.id).subscribe(data => {
+        this.rawItem = data;
       });
     }
     else {
@@ -48,7 +48,7 @@ export class ItemDetailsComponent implements OnInit {
 
   onSubmit() {
 
-    this.itemService.addOrUpdate(this.item).subscribe(data => {
+    this.rawItemService.addOrUpdate(this.rawItem).subscribe(data => {
       // console.log(data);
       this.isReadOnly = true;
     });

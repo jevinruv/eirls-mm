@@ -1,4 +1,4 @@
-export class ItemReorder {
+export class RawItemReorder {
     id: number;
     level: number;
     quantity: number;

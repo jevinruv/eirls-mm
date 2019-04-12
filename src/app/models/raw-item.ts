@@ -1,14 +1,14 @@
 import { Supplier } from './supplier';
-import { ItemReorder } from './item-reorder';
+import { RawItemReorder } from './raw-item-reorder';
 
-export class Item {
+export class RawItem {
     id: number;
     name: string;
     description: string;
     price: number;
     quantity: number;
     supplier: Supplier = new Supplier();
-    itemReorder: ItemReorder = new ItemReorder();
+    rawItemReorder: RawItemReorder = new RawItemReorder();
 
     constructor() {
         this.id = null;

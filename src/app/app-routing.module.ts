@@ -7,7 +7,7 @@ import { LoginLayoutComponent } from './ui/layouts/login-layout/login-layout.com
 import { DefaultLayoutComponent } from './ui/layouts/default-layout/default-layout.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleAuthGuard } from './guards/role-auth.guard';
-import { ItemDetailsComponent } from './item-details/item-details.component';
+import { RawItemDetailsComponent } from './raw-item-details/raw-item-details.component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
       { path: 'supplier/:id', component: SupplierDetailsComponent },
       { path: 'supplier', component: SupplierListComponent },
 
-      { path: 'item/new', component: ItemDetailsComponent, canActivate: [RoleAuthGuard] },
-      { path: 'item/:id', component: ItemDetailsComponent },
+      { path: 'item/new', component: RawItemDetailsComponent, canActivate: [RoleAuthGuard] },
+      { path: 'item/:id', component: RawItemDetailsComponent },
       { path: 'item', component: SupplierListComponent },
     ]
   },
