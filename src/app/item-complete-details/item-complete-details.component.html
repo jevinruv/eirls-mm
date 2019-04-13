@@ -1,0 +1,81 @@
+<h3>Complete Item</h3>
+
+<form #itemCompleteForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
+
+  <div class="form-row">
+
+    <div class="form-group col-md-3">
+      <label for="id">ID</label>
+      <input #id="ngModel" [(ngModel)]="itemComplete.id" name="id" id="id" type="text" class="form-control"
+        [readonly]="true">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input #name="ngModel" [(ngModel)]="itemComplete.name" name="name" id="name" type="text"
+      class="form-control col-md-9" required [readonly]="isReadOnly">
+    <div class="invalid-feedback d-block" *ngIf="name.touched && name.invalid"> Name is Required </div>
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-md-5">
+      <label for="price">Price</label>
+      <input #price="ngModel" [(ngModel)]="itemComplete.price" name="price" id="price" type="number" min="1"
+        class="form-control" required [readonly]="isReadOnly">
+      <div class="invalid-feedback d-block" *ngIf="price.touched && price.invalid"> Price is Required </div>
+      <div class="invalid-feedback d-block" *ngIf="price.value < 1 && price.touched"> Price is Invalid </div>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="quantity">Quantity</label>
+      <input #quantity="ngModel" [(ngModel)]="itemComplete.quantity" name="quantity" id="quantity" type="number" min="1"
+        class="form-control" required [readonly]="isReadOnly">
+      <div class="invalid-feedback d-block" *ngIf="quantity.touched && quantity.invalid"> Quantity is Required </div>
+      <div class="invalid-feedback d-block" *ngIf="quantity.value < 1 && quantity.touched"> Quantity is Invalid </div>
+    </div>
+
+  </div>
+
+  <div ngModelGroup="itemCompleteReorder">
+
+    <div class="form-row">
+
+      <div class="form-group col-md-5">
+        <label for="level">Reorder Level</label>
+        <input #level="ngModel" [(ngModel)]="itemComplete.itemCompleteReorder.level" name="level" id="level"
+          type="number" min="1" class="form-control" required [readonly]="isReadOnly">
+        <div class="invalid-feedback d-block" *ngIf="level.touched && level.invalid"> Reorder Level is Required </div>
+        <div class="invalid-feedback d-block" *ngIf="level.value < 1 && level.touched"> Reorder Level is Invalid </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="rquantity">Reorder Quantity</label>
+        <input #rquantity="ngModel" [(ngModel)]="itemComplete.itemCompleteReorder.quantity" name="rquantity"
+          id="rquantity" type="number" min="1" class="form-control" required [readonly]="isReadOnly">
+        <div class="invalid-feedback d-block" *ngIf="rquantity.touched && rquantity.invalid">Reorder Quantity is
+          Required
+        </div>
+        <div class="invalid-feedback d-block" *ngIf="rquantity.value < 1 && rquantity.touched">Reorder Quantity is
+          Invalid </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea #description="ngModel" [(ngModel)]="itemComplete.description" name="description" id="description"
+      class="form-control col-md-9" required [readonly]="isReadOnly" rows="3"></textarea>
+    <div class="invalid-feedback d-block" *ngIf="description.touched && description.invalid"> Description is Required
+    </div>
+  </div>
+
+  <div>
+    <a routerLink="/complete-item" class="btn btn-secondary"> <i class="fa fa-arrow-left"></i>Complete Item List</a>
+    <button class="btn btn-success" [disabled]="!itemCompleteForm.valid || isReadOnly">Save</button>
+    <button *ngIf="itemComplete.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button>
+  </div>
+
+</form>

@@ -7,8 +7,9 @@ import { LoginLayoutComponent } from './ui/layouts/login-layout/login-layout.com
 import { DefaultLayoutComponent } from './ui/layouts/default-layout/default-layout.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleAuthGuard } from './guards/role-auth.guard';
-import { RawItemDetailsComponent } from './raw-item-details/raw-item-details.component';
-import { RawItemListComponent } from './raw-item-list/raw-item-list.component';
+import { ItemRawDetailsComponent } from './item-raw-details/item-raw-details.component';
+import { ItemRawListComponent } from './item-raw-list/item-raw-list.component';
+import { ItemCompleteDetailsComponent } from './item-complete-details/item-complete-details.component';
 
 const routes: Routes = [
   {
@@ -20,9 +21,13 @@ const routes: Routes = [
       { path: 'supplier/:id', component: SupplierDetailsComponent },
       { path: 'supplier', component: SupplierListComponent },
 
-      { path: 'raw-item/new', component: RawItemDetailsComponent, canActivate: [RoleAuthGuard] },
-      { path: 'raw-item/:id', component: RawItemDetailsComponent },
-      { path: 'raw-item', component: RawItemListComponent },
+      { path: 'item-raw/new', component: ItemRawDetailsComponent, canActivate: [RoleAuthGuard] },
+      { path: 'item-raw/:id', component: ItemRawDetailsComponent },
+      { path: 'item-raw', component: ItemRawListComponent },
+
+      { path: 'item-complete/new', component: ItemCompleteDetailsComponent, canActivate: [RoleAuthGuard] },
+      { path: 'item-complete/:id', component: ItemCompleteDetailsComponent },
+      { path: 'item-complete', component: ItemRawListComponent },
     ]
   },
   {

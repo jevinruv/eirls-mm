@@ -16,8 +16,9 @@ import { NavbarComponent } from './ui/navbar/navbar.component';
 import { LoginLayoutComponent } from './ui/layouts/login-layout/login-layout.component';
 import { DefaultLayoutComponent } from './ui/layouts/default-layout/default-layout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RawItemDetailsComponent } from './raw-item-details/raw-item-details.component';
-import { RawItemListComponent } from './raw-item-list/raw-item-list.component';
+import { ItemRawDetailsComponent } from './item-raw-details/item-raw-details.component';
+import { ItemRawListComponent } from './item-raw-list/item-raw-list.component';
+import { ItemCompleteDetailsComponent } from './item-complete-details/item-complete-details.component';
 
 
 @NgModule({
@@ -30,8 +31,9 @@ import { RawItemListComponent } from './raw-item-list/raw-item-list.component';
     LoaderComponent,
     LoginLayoutComponent,
     DefaultLayoutComponent,
-    RawItemDetailsComponent,
-    RawItemListComponent,
+    ItemRawDetailsComponent,
+    ItemRawListComponent,
+    ItemCompleteDetailsComponent,
   ],
   imports: [
     BrowserModule,

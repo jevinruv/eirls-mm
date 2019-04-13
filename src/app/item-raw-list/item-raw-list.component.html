@@ -21,13 +21,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let rawItem of filteredRawItemList" [routerLink]="[rawItem.id]">
-      <td>{{rawItem.id}}</td>
-      <td>{{rawItem.name}}</td>
-      <td>{{rawItem.quantity}}</td>
-      <td>{{rawItem.price}}</td>
+    <tr *ngFor="let itemRaw of filteredItemRawList" [routerLink]="[itemRaw.id]">
+      <td>{{itemRaw.id}}</td>
+      <td>{{itemRaw.name}}</td>
+      <td>{{itemRaw.quantity}}</td>
+      <td>{{itemRaw.price}}</td>
       <td>
-        <a [routerLink]="[rawItem.id]">Manage</a>
+        <a [routerLink]="[itemRaw.id]">Manage</a>
       </td>
     </tr>
   </tbody>

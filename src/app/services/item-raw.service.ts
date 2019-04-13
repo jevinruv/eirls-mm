@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RawItem } from '../models/raw-item';
+import { ItemRaw } from '../models/item-raw';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RawItemService {
+export class ItemRawService {
 
-  API_URL = "/api/raw-items";
+  API_URL = "/api/items-raw";
 
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<RawItem[]>(this.API_URL);
+    return this.http.get<ItemRaw[]>(this.API_URL);
   }
 
   get(id) {
-    return this.http.get<RawItem>(this.API_URL + `/${id}`);
+    return this.http.get<ItemRaw>(this.API_URL + `/${id}`);
   }
 
   addOrUpdate(rawItem) {
