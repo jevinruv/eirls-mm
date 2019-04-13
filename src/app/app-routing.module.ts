@@ -10,6 +10,7 @@ import { RoleAuthGuard } from './guards/role-auth.guard';
 import { ItemRawDetailsComponent } from './item-raw-details/item-raw-details.component';
 import { ItemRawListComponent } from './item-raw-list/item-raw-list.component';
 import { ItemCompleteDetailsComponent } from './item-complete-details/item-complete-details.component';
+import { ItemCompleteListComponent } from './item-complete-list/item-complete-list.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
 
       { path: 'item-complete/new', component: ItemCompleteDetailsComponent, canActivate: [RoleAuthGuard] },
       { path: 'item-complete/:id', component: ItemCompleteDetailsComponent },
-      { path: 'item-complete', component: ItemRawListComponent },
+      { path: 'item-complete', component: ItemCompleteListComponent },
     ]
   },
   {

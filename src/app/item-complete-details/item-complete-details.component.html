@@ -73,7 +73,7 @@
   </div>
 
   <div>
-    <a routerLink="/complete-item" class="btn btn-secondary"> <i class="fa fa-arrow-left"></i>Complete Item List</a>
+    <a routerLink="/item-complete" class="btn btn-secondary"> <i class="fa fa-arrow-left"></i>Complete Item List</a>
     <button class="btn btn-success" [disabled]="!itemCompleteForm.valid || isReadOnly">Save</button>
     <button *ngIf="itemComplete.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button>
   </div>

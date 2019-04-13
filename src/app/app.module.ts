@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemRawDetailsComponent } from './item-raw-details/item-raw-details.component';
 import { ItemRawListComponent } from './item-raw-list/item-raw-list.component';
 import { ItemCompleteDetailsComponent } from './item-complete-details/item-complete-details.component';
+import { ItemCompleteListComponent } from './item-complete-list/item-complete-list.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ItemCompleteDetailsComponent } from './item-complete-details/item-compl
     ItemRawDetailsComponent,
     ItemRawListComponent,
     ItemCompleteDetailsComponent,
+    ItemCompleteListComponent,
   ],
   imports: [
     BrowserModule,
