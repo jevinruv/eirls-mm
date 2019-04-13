@@ -19,6 +19,10 @@ export class ItemRawService {
     return this.http.get<ItemRaw>(this.API_URL + `/${id}`);
   }
 
+  getAllLowQuantity() {
+    return this.http.get<ItemRaw[]>(this.API_URL + "/low-quantity");
+  }
+
   addOrUpdate(rawItem) {
     return this.http.post(this.API_URL, rawItem);
   }

@@ -11,6 +11,7 @@ import { ItemRawDetailsComponent } from './item-raw-details/item-raw-details.com
 import { ItemRawListComponent } from './item-raw-list/item-raw-list.component';
 import { ItemCompleteDetailsComponent } from './item-complete-details/item-complete-details.component';
 import { ItemCompleteListComponent } from './item-complete-list/item-complete-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,8 @@ const routes: Routes = [
     component: DefaultLayoutComponent,
     canActivate: [AuthGuard],
     children: [
+      { path: '', component: DashboardComponent },
+
       { path: 'supplier/new', component: SupplierDetailsComponent, canActivate: [RoleAuthGuard] },
       { path: 'supplier/:id', component: SupplierDetailsComponent },
       { path: 'supplier', component: SupplierListComponent },
