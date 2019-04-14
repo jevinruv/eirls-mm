@@ -38,18 +38,18 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Created Date</th>
                 <th>Status</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let itemRaw of itemRawList" [routerLink]="[itemRaw.id]">
-                <td>{{itemRaw.id}}</td>
-                <td>{{itemRaw.name}}</td>
-                <td>{{itemRaw.quantity}}</td>
+              <tr *ngFor="let supplierOrder of supplierOrderList" [routerLink]="[supplierOrder.id]">
+                <td>{{supplierOrder.id}}</td>
+                <td>{{supplierOrder.createdDate}}</td>
+                <td>{{supplierOrder.status}}</td>
                 <td>
-                  <a [routerLink]="[itemRaw.id]">View</a>
+                  <a [routerLink]="[supplierOrder.id]">View</a>
                 </td>
               </tr>
             </tbody>
