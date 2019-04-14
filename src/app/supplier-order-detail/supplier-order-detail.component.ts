@@ -48,7 +48,7 @@ export class SupplierOrderDetailComponent implements OnInit {
       this.isReadOnly = false;
 
       this.supplierOrderService.newSupplierOrder().subscribe(data => {
-        console.log(data)
+        // console.log(data)
         this.supplierOrder = data;
       });
     }
