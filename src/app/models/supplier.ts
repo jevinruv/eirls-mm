@@ -1,4 +1,5 @@
 import { SupplierContact } from './supplier-contact';
+import { ItemRaw } from './item-raw';
 
 export class Supplier {
     id: number;
@@ -6,6 +7,7 @@ export class Supplier {
     status: string;
     leadTime: number;
     supplierContact: SupplierContact = new SupplierContact();
+    itemsRaw: ItemRaw[] = [];
 
     constructor() {
         this.id = null;

@@ -12,6 +12,7 @@ import { ItemRawListComponent } from './item-raw-list/item-raw-list.component';
 import { ItemCompleteDetailsComponent } from './item-complete-details/item-complete-details.component';
 import { ItemCompleteListComponent } from './item-complete-list/item-complete-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SupplierOrderDetailComponent } from './supplier-order-detail/supplier-order-detail.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       { path: 'supplier/new', component: SupplierDetailsComponent, canActivate: [RoleAuthGuard] },
       { path: 'supplier/:id', component: SupplierDetailsComponent },
       { path: 'supplier', component: SupplierListComponent },
+
+      { path: 'supplier-order/new', component: SupplierOrderDetailComponent, canActivate: [RoleAuthGuard] },
+      { path: 'supplier-order/:id', component: SupplierOrderDetailComponent },
+      { path: 'supplier-order', component: SupplierListComponent },
 
       { path: 'item-raw/new', component: ItemRawDetailsComponent, canActivate: [RoleAuthGuard] },
       { path: 'item-raw/:id', component: ItemRawDetailsComponent },

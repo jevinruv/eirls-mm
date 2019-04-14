@@ -19,6 +19,9 @@ export class SupplierOrderService {
     return this.http.get<SupplierOrder>(this.API_URL + `/${id}`);
   }
 
+  newSupplierOrder() {
+    return this.http.get<SupplierOrder>(this.API_URL + '/new');
+  }
   addOrUpdate(supplierOrder) {
     return this.http.post(this.API_URL, supplierOrder);
   }
