@@ -32,9 +32,9 @@
 
     <div class="form-group col-md-6">
       <label for="supplier">Supplier</label>
-      <select required #supplier="ngModel" [(ngModel)]="supplierOrder.supplier"
-        (ngModelChange)="onChangeSupplier($event)" [compareWith]="compareByOptionId" name="supplier" id="supplier"
-        class="form-control" [disabled]="isReadOnly">
+      <select #supplier="ngModel" [(ngModel)]="supplierOrder.supplier" (ngModelChange)="onChangeSupplier($event)"
+        [compareWith]="compareByOptionId" name="supplier" id="supplier" class="form-control" required
+        [disabled]="isReadOnly">
         <option *ngFor="let supplier of supplierList" [ngValue]="supplier"> {{supplier.name}} </option>
       </select>
       <div class="invalid-feedback d-block" *ngIf="supplier.touched && supplier.invalid"> Supplier is Required </div>

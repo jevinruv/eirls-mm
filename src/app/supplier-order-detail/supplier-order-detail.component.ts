@@ -46,11 +46,6 @@ export class SupplierOrderDetailComponent implements OnInit {
     }
     else {
       this.isReadOnly = false;
-
-      this.supplierOrderService.newSupplierOrder().subscribe(data => {
-        // console.log(data)
-        this.supplierOrder = data;
-      });
     }
   }
 
@@ -62,24 +57,27 @@ export class SupplierOrderDetailComponent implements OnInit {
 
   onSubmit() {
     // console.log(this.supplierOrder);
-
-    let supplierFormList = [];
+    let supplierOrderItemList = [];
 
     this.supplierOrder.supplierOrderItems.forEach(item => {
-
-      let supplierOrderForm = {
-        supplierOrderId: this.supplierOrder.id,
+      let supplierOrderItem = {
         itemRawId: item.itemRaw.id,
         quantity: item.quantity
       };
-      supplierFormList.push(supplierOrderForm);
-
+      supplierOrderItemList.push(supplierOrderItem);
     });
 
-    console.log(supplierFormList);
+    let supplierOrder = {
+      id: this.supplierOrder.id,
+      status: this.supplierOrder.status,
+      supplierId: this.supplierOrder.supplier.id,
+      supplierOrderItems: supplierOrderItemList
+    };
 
-    this.supplierOrderService.addOrUpdate(supplierFormList).subscribe(data => {
-      console.log(data);
+    // console.log(supplierOrder);
+
+    this.supplierOrderService.addOrUpdate(supplierOrder).subscribe(data => {
+      // console.log(data);
       this.isReadOnly = true;
     });
   }
