@@ -44,12 +44,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let supplierOrder of supplierOrderList" [routerLink]="[supplierOrder.id]">
+              <tr *ngFor="let supplierOrder of supplierOrderList.slice(0, rowLimit)">
                 <td>{{supplierOrder.id}}</td>
                 <td>{{supplierOrder.createdDate}}</td>
                 <td>{{supplierOrder.status}}</td>
                 <td>
-                  <a [routerLink]="[supplierOrder.id]">View</a>
+                  <a [routerLink]=" ['supplier-order', supplierOrder.id]">View</a>
                 </td>
               </tr>
             </tbody>
@@ -72,7 +72,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let itemRaw of itemRawList" [routerLink]="[itemRaw.id]">
+              <tr *ngFor="let itemRaw of itemRawList.slice(0, rowLimit)">
                 <td>{{itemRaw.id}}</td>
                 <td>{{itemRaw.name}}</td>
                 <td>{{itemRaw.quantity}}</td>

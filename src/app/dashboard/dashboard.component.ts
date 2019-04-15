@@ -12,8 +12,9 @@ import { SupplierOrder } from '../models/supplier-order';
 })
 export class DashboardComponent implements OnInit {
 
-  itemRawList: ItemRaw[];
-  supplierOrderList: SupplierOrder[];
+  itemRawList: ItemRaw[] = [];
+  supplierOrderList: SupplierOrder[] = [];
+  rowLimit = 3;
 
   constructor(
     private itemRawService: ItemRawService,
@@ -29,7 +30,7 @@ export class DashboardComponent implements OnInit {
     });
 
     this.supplierOrderService.getAll().subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.supplierOrderList = data;
     });
 
