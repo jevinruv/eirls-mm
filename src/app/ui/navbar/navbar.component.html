@@ -18,6 +18,16 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/supplier/" routerLinkActive="active">Supplier</a>
       </li>
+
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" routerLinkActive="active"> Orders
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/supplier-order/" routerLinkActive="active">Supplier Orders</a>
+          <a class="dropdown-item" routerLink="/sales-order/" routerLinkActive="active">Sales Orders</a>
+        </div>
+      </li>
     </ul>
 
 
