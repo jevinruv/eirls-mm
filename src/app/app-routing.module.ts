@@ -13,6 +13,8 @@ import { ItemCompleteDetailsComponent } from './item-complete-details/item-compl
 import { ItemCompleteListComponent } from './item-complete-list/item-complete-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SupplierOrderDetailComponent } from './supplier-order-detail/supplier-order-detail.component';
+import { RoleMmGuard } from './guards/role-mm.guard';
+import { SupplierOrderListComponent } from './supplier-order-list/supplier-order-list.component';
 
 const routes: Routes = [
   {
@@ -28,13 +30,13 @@ const routes: Routes = [
 
       { path: 'supplier-order/new', component: SupplierOrderDetailComponent, canActivate: [RoleAuthGuard] },
       { path: 'supplier-order/:id', component: SupplierOrderDetailComponent },
-      { path: 'supplier-order', component: SupplierListComponent },
+      { path: 'supplier-order', component: SupplierOrderListComponent },
 
-      { path: 'item-raw/new', component: ItemRawDetailsComponent, canActivate: [RoleAuthGuard] },
+      { path: 'item-raw/new', component: ItemRawDetailsComponent, canActivate: [RoleMmGuard] },
       { path: 'item-raw/:id', component: ItemRawDetailsComponent },
       { path: 'item-raw', component: ItemRawListComponent },
 
-      { path: 'item-complete/new', component: ItemCompleteDetailsComponent, canActivate: [RoleAuthGuard] },
+      { path: 'item-complete/new', component: ItemCompleteDetailsComponent, canActivate: [RoleMmGuard] },
       { path: 'item-complete/:id', component: ItemCompleteDetailsComponent },
       { path: 'item-complete', component: ItemCompleteListComponent },
     ]

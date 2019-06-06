@@ -39,7 +39,7 @@ export class SupplierOrderDetailComponent implements OnInit {
 
     if (this.id) {
       this.supplierOrderService.get(this.id).subscribe(data => {
-        // console.log(data)
+        console.log(data);
         this.supplierOrder = data;
         this.selectedSupplier = this.supplierOrder.supplier;
       });
@@ -62,7 +62,7 @@ export class SupplierOrderDetailComponent implements OnInit {
     this.supplierOrder.supplierOrderItems.forEach(item => {
       let supplierOrderItem = {
         itemRawId: item.itemRaw.id,
-        quantity: item.quantity
+        quantityOrdered: item.quantityOrdered
       };
       supplierOrderItemList.push(supplierOrderItem);
     });
@@ -82,9 +82,9 @@ export class SupplierOrderDetailComponent implements OnInit {
     });
   }
 
-  edit() {
-    this.isReadOnly = false;
-  }
+  // edit() {
+  //   this.isReadOnly = false;
+  // }
 
   compareByOptionId(idFirst, idSecond) {
     return idFirst && idSecond && idFirst.id == idSecond.id;
@@ -93,7 +93,7 @@ export class SupplierOrderDetailComponent implements OnInit {
   addFieldValue() {
     // console.log(this.newSupplierOrderItem);
 
-    if (this.newSupplierOrderItem.itemRaw.id && this.newSupplierOrderItem.quantity) {
+    if (this.newSupplierOrderItem.itemRaw.id && this.newSupplierOrderItem.quantityOrdered) {
       this.supplierOrder.supplierOrderItems.push(this.newSupplierOrderItem)
       this.newSupplierOrderItem = new SupplierOrderItem();
     }

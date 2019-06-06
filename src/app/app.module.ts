@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 import { httpAuthInterceptorProvider } from './auth-interceptor';
 import { httpLoaderInterceptorProvider } from './loader-interceptor';
 
@@ -22,6 +24,7 @@ import { ItemCompleteDetailsComponent } from './item-complete-details/item-compl
 import { ItemCompleteListComponent } from './item-complete-list/item-complete-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SupplierOrderDetailComponent } from './supplier-order-detail/supplier-order-detail.component';
+import { SupplierOrderListComponent } from './supplier-order-list/supplier-order-list.component';
 
 
 @NgModule({
@@ -40,13 +43,16 @@ import { SupplierOrderDetailComponent } from './supplier-order-detail/supplier-o
     ItemCompleteListComponent,
     DashboardComponent,
     SupplierOrderDetailComponent,
+    SupplierOrderListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [httpAuthInterceptorProvider, httpLoaderInterceptorProvider],
   bootstrap: [AppComponent]

@@ -53,6 +53,9 @@ export class LoginComponent implements OnInit {
         case 'ROLE_MM':
           this.router.navigateByUrl('');
           break;
+        case 'ROLE_MC':
+          this.router.navigateByUrl('');
+          break;
         default:
           this.router.navigateByUrl('/login');
           break;
