@@ -25,6 +25,8 @@ import { ItemCompleteListComponent } from './item-complete-list/item-complete-li
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SupplierOrderDetailComponent } from './supplier-order-detail/supplier-order-detail.component';
 import { SupplierOrderListComponent } from './supplier-order-list/supplier-order-list.component';
+import { SalesOrderListComponent } from './sales-order-list/sales-order-list.component';
+import { SalesOrderDetailComponent } from './sales-order-detail/sales-order-detail.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { SupplierOrderListComponent } from './supplier-order-list/supplier-order
     DashboardComponent,
     SupplierOrderDetailComponent,
     SupplierOrderListComponent,
+    SalesOrderListComponent,
+    SalesOrderDetailComponent,
   ],
   imports: [
     BrowserModule,

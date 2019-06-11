@@ -1,0 +1,103 @@
+<h3>Supplier Order</h3>
+
+<form #supplierOrderForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
+
+  <div class="form-row">
+
+    <div class="form-group col-md-3">
+      <label for="id">ID</label>
+      <input #id="ngModel" [(ngModel)]="supplierOrder.id" name="id" id="id" type="text" class="form-control"
+        [readonly]="true">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="status">Status</label>
+      <select #status="ngModel" [(ngModel)]="supplierOrder.status" name="status" id="status" class="form-control"
+        required>
+        <option value="SENT">SENT</option>
+        <option value="RECEIVED">RECEIVED</option>
+      </select>
+      <div class="invalid-feedback d-block" *ngIf="status.touched && status.invalid"> Status is Required </div>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group  col-md-3">
+      <label for="createdDate">Created Date</label>
+      <input #createdDate="ngModel" [(ngModel)]="supplierOrder.createdDate" name="createdDate" id="createdDate"
+        type="text" class="form-control" [readonly]="true">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="supplier">Supplier</label>
+      <select #supplier="ngModel" [(ngModel)]="supplierOrder.supplier" (ngModelChange)="onChangeSupplier($event)"
+        [compareWith]="compareByOptionId" name="supplier" id="supplier" class="form-control" required
+        [disabled]="isReadOnly">
+        <option *ngFor="let supplier of supplierList" [ngValue]="supplier"> {{supplier.name}} </option>
+      </select>
+      <div class="invalid-feedback d-block" *ngIf="supplier.touched && supplier.invalid"> Supplier is Required </div>
+    </div>
+
+  </div>
+
+  <h5>Order Items</h5>
+
+  <table class="table table-bordered text-center col-md-9">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Item</th>
+        <th>Quantity Ordered</th>
+        <th>Quantity Received</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orderItem of supplierOrder.supplierOrderItems; let i = index">
+        <td>{{orderItem.id}}</td>
+        <td>{{orderItem.itemRaw.name}}</td>
+        <td>{{orderItem.quantityOrdered}}</td>
+        <td>{{orderItem.quantityReceived}}</td>
+        <td>
+          <button class="btn btn-light" type="button" (click)="deleteFieldValue(i)"
+            [disabled]="isReadOnly">Delete</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input class="form-control" type="text" id="newSupplierOrderItemId" [(ngModel)]="newSupplierOrderItem.id"
+            name="newSupplierOrderItemId" readonly />
+        </td>
+        <td>
+          <select [(ngModel)]="newSupplierOrderItem.itemRaw" name="newSupplierOrderItemItemRaw"
+            id="newSupplierOrderItemItemRaw" class="form-control" [disabled]="isReadOnly">
+            <option *ngFor="let itemRaw of selectedSupplier.itemsRaw" [ngValue]="itemRaw"> {{itemRaw.name}} </option>
+          </select>
+        </td>
+        <td>
+          <input class="form-control" type="number" id="newSupplierOrderItemQuantityOrdered"
+            [(ngModel)]="newSupplierOrderItem.quantityOrdered" name="newSupplierOrderItemQuantityOrdered"
+            [disabled]="isReadOnly" />
+        </td>
+        <td>
+          <input class="form-control" type="number" id="newSupplierOrderItemQuantityReceived"
+            [(ngModel)]="newSupplierOrderItem.quantityReceived" name="newSupplierOrderItemQuantityReceived"
+            [disabled]="isReadOnly" />
+        </td>
+        <td>
+          <button class="btn btn-light" type="button" (click)="addFieldValue()" [disabled]="isReadOnly">Add</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div>
+    <a routerLink="/supplier-order" class="btn btn-secondary"> <i class="fa fa-arrow-left"></i>Supplier Order List</a>
+    <button class="btn btn-success" [disabled]="!supplierOrderForm.valid">Save</button>
+    <!-- <button *ngIf="supplierOrder.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button> -->
+  </div>
+
+</form>
