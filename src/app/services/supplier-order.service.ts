@@ -15,6 +15,18 @@ export class SupplierOrderService {
     return this.http.get<SupplierOrder[]>(this.API_URL);
   }
 
+  getAllReceived() {
+    return this.http.get<SupplierOrder[]>(this.API_URL + '/received');
+  }
+
+  getAllSent() {
+    return this.http.get<SupplierOrder[]>(this.API_URL + '/sent');
+  }
+
+  getAllAdded() {
+    return this.http.get<SupplierOrder[]>(this.API_URL + '/added');
+  }
+
   get(id) {
     return this.http.get<SupplierOrder>(this.API_URL + `/${id}`);
   }

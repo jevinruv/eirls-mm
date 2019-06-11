@@ -1,14 +1,16 @@
 <h3>Supplier Order List</h3>
 
-<p class="float-right">
-  <a routerLink="/supplier-order/new" class="btn btn-primary">
-    <i class="fa fa-plus"></i> New Supplier Order
-  </a>
-</p>
+<div class="mt-4 mb-3">
 
-<p>
+  <a routerLink="/supplier-order/" class="btn btn-warning"> All </a>
+  <a routerLink="/supplier-order/" [queryParams]="{ status: 'sent' }" class="btn btn-success"> Sent </a>
+  <a routerLink="/supplier-order/" [queryParams]="{ status: 'received' }" class="btn btn-success"> Received </a>
+  <a routerLink="/supplier-order/" [queryParams]="{ status: 'added' }" class="btn btn-success"> Added </a>
+  <a routerLink="/supplier-order/new" class="btn btn-primary float-right"> New Supplier Order </a>
+</div>
+<!-- <p>
   <input #query (keyup)="filter(query.value)" type="text" placeholder="Search..." class="form-control">
-</p>
+</p> -->
 
 <table class="table">
   <thead>
