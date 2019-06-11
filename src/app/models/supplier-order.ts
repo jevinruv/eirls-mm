@@ -10,7 +10,7 @@ export class SupplierOrder {
 
     constructor() {
         this.id = null;
-        this.status = null;
+        this.status = 'SENT';
         this.createdDate = null;
     }
 }

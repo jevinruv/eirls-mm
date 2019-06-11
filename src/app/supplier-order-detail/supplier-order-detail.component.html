@@ -13,9 +13,10 @@
     <div class="form-group col-md-6">
       <label for="status">Status</label>
       <select #status="ngModel" [(ngModel)]="supplierOrder.status" name="status" id="status" class="form-control"
-        required>
+        required readonly>
         <option value="SENT">SENT</option>
         <option value="RECEIVED">RECEIVED</option>
+        <option value="ADDED">ADDED</option>
       </select>
       <div class="invalid-feedback d-block" *ngIf="status.touched && status.invalid"> Status is Required </div>
     </div>
@@ -97,6 +98,8 @@
   <div>
     <a routerLink="/supplier-order" class="btn btn-secondary"> <i class="fa fa-arrow-left"></i>Supplier Order List</a>
     <button class="btn btn-success" [disabled]="!supplierOrderForm.valid">Save</button>
+    <button class="btn btn-primary" *ngIf="supplierOrder.status == 'RECEIVED'" (click)="addToStock()">Add To
+      Stock</button>
     <!-- <button *ngIf="supplierOrder.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button> -->
   </div>
 
